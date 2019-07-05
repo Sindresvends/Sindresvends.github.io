@@ -49,7 +49,7 @@ $(document).ready(function () {
     });
 
     /***************** Initiate Flexslider ******************/
-    $('.flexslider').flexslider({
+    $('.flexslider').flexslider({9
         animation: "slide"
     });
 
@@ -176,7 +176,7 @@ $(document).ready(function () {
     });
 
     /********************** Add to Calendar **********************/
-    var myCalendar = createCalendar({
+    /*var myCalendar = createCalendar({
         options: {
             class: '',
             // You can pass an ID. If you don't, one will be generated for you
@@ -202,23 +202,24 @@ $(document).ready(function () {
             // Event Description
             description: "We can't wait to see you on our big day. For any queries or issues contact Mr. Amit Roy at +91 9435021804 or +91 7086018971."
         }
-    });
+    });*/
 
     $('#add-to-cal').html(myCalendar);
 
 
-    /********************** RSVP **********************/
+    /********************** RSVP *271117 *********************/
     $('#rsvp-form').on('submit', function (e) {
         e.preventDefault();
         var data = $(this).serialize();
 
         $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
 
-        if (MD5($('#invite_code').val()) !== 'b0e53b10c1f55ede516b240036b88f40'
-            && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
-            $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
-        } else {
-            $.post('https://script.google.com/macros/s/AKfycbzUqz44wOat0DiGjRV1gUnRf4HRqlRARWggjvHKWvqniP7eVDG-/exec', data)
+        //if (MD5($('#invite_code').val()) !== 'b0e53b10c1f55ede516b240036b88f40'
+          //  && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
+            //$('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
+        //} else {
+            $.post('https://script.google.com/macros/s/AKfycbzRw-ibPNUqBCdYrE7X1JNTx6bzqNXopLjvKhzCh1uHQDDapog/exec', data)
+            
                 .done(function (data) {
                     console.log(data);
                     $('#alert-wrapper').html('');
@@ -228,7 +229,7 @@ $(document).ready(function () {
                     console.log(data);
                     $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
                 });
-        }
+        //}
     });
 
 });
@@ -237,7 +238,7 @@ $(document).ready(function () {
 
 // Google map
 function initMap() {
-    var itc_kol = {lat: 22.5932759, lng: 88.27027720000001};
+    var itc_kol = {lat: 59.116066, lng: 9.432344};
     var map = new google.maps.Map(document.getElementById('map-canvas'), {
         zoom: 15,
         center: itc_kol,
@@ -251,7 +252,7 @@ function initMap() {
 }
 
 function initBBSRMap() {
-    var la_fiesta = {lat: 20.305826, lng: 85.85480189999998};
+    var la_fiesta = {lat: 59.116066, lng: 9.432344};
     var map = new google.maps.Map(document.getElementById('map-canvas'), {
         zoom: 15,
         center: la_fiesta,
